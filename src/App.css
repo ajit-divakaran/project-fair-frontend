@@ -1,0 +1,21 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: "IBM Plex Serif", serif;
+}
+#btn-hover{
+/* display: inline-block; */
+transform:scale(1);
+transition: all 0.25s ease-in-out;
+}
+#btn-hover:hover{
+  transform:scale(1.05)
+}
+#plink{
+  color:#4e47c9;
+  cursor:pointer;
+}
+#plink:hover{
+  color:#ff5449;
+}
