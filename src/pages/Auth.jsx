@@ -1,12 +1,13 @@
 import { faStackOverflow } from "@fortawesome/free-brands-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useContext, useState } from "react";
 // import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginApi, registerApi } from "../services/allApi";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { loginResponseContext } from "../context/Contextshare";
 
 const Auth = ({ register }) => {
 
@@ -18,6 +19,8 @@ const Auth = ({ register }) => {
 
   const navigate = useNavigate()
   console.log(userDetails)
+
+  const {setLoginResponse} = useContext(loginResponseContext)
 
   const handleRegister = async() =>{
     console.log(userDetails)
@@ -69,6 +72,7 @@ else{
     })
     sessionStorage.setItem('existingUser',JSON.stringify(result.data.existingUser))
     sessionStorage.setItem('token',result.data.token)
+    setLoginResponse(true)
     setTimeout(()=>{navigate('/')},2000)
     
   }

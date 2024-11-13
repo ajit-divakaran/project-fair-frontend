@@ -30,7 +30,7 @@ const Home = () => {
               <h1 className="text-light">Project Fair</h1>
               <p>One step destination for all software projects</p>
               <div>
-         { !isLogin ?   <Link to={'/login'}>
+         { !isLogin ?   <Link to={'/register  '}>
                 <button className="btn btn-warning shadow-md" id="btn-hover">
                     Get started
                     <FontAwesomeIcon icon={faArrowRight} className="ms-3" />

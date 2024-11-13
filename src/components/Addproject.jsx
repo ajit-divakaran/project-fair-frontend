@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addProjectApi } from '../services/allApi';
+import { addResponseContext } from '../context/Contextshare';
 
 const Addproject = () => {
     const [show, setShow] = useState(false);
@@ -19,6 +20,10 @@ const Addproject = () => {
     const [key,setKey] =useState(1)
 
     const [token, setToken] = useState("")
+
+    //context
+const {setAddResponse} = useContext(addResponseContext)
+
     console.log(token)
     console.log(preview)
     const handleFile = (e)=>{
@@ -63,14 +68,15 @@ const Addproject = () => {
         
         if(token){
           const reqHeader = {
-            "Content-Type":"application/json",
+            "Content-Type":"multipart/form-data", // multipart/form-data
             "Authorization":`Bearer ${token}`
           }
           const result = await addProjectApi(reqBody,reqHeader)
           console.log(result);
           if(result.status==200){
             toast.success("project added sucessfully")
-            handleClose()
+            setTimeout(()=>{handleClose()},2003)
+            setAddResponse(result)
           }
           else if(result.status == 406){
             toast.warning(result.response.data)
