@@ -49,7 +49,7 @@ const Home = () => {
           
           <div className="col-md-2"></div>
           <div className="col-md-4 d-flex align-items-center justify-content-center">
-            <img src="../../public/image.png" alt="" width="60%" />
+            <img src="/image.png" alt="" width="60%" />
           </div>
           <div className="col-md-1"></div>
         </div>
