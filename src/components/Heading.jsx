@@ -8,8 +8,8 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { loginResponseContext } from "../context/Contextshare";
 
-const Header = () => {
-const [token,setToken] = useState(null)
+const Heading = () => {
+    const [token,setToken] = useState(null)
 const navigate = useNavigate()
 const {setLoginResponse,loginResponse} = useContext(loginResponseContext)
 
@@ -29,25 +29,25 @@ const handleLogout = ()=>{
   },[loginResponse])
   return (
     <div>
-      <Navbar bg="dark" data-bs-theme="dark" className="shadow-lg">
-        <Container>
-          <Link to={"/"} className="text-decoration-none">
-            <Navbar.Brand href="#home" className="ms-2">
-              <FontAwesomeIcon
-                icon={faStackOverflow}
-                style={{ color: "white", marginRight: "1rem" }}
-              />
-              Project Fair
-            </Navbar.Brand>
-          </Link>
+    <Navbar bg="dark" data-bs-theme="dark" className="shadow-lg">
+      <Container>
+        <Link to={"/"} className="text-decoration-none">
+          <Navbar.Brand href="#home" className="ms-2">
+            <FontAwesomeIcon
+              icon={faStackOverflow}
+              style={{ color: "white", marginRight: "1rem" }}
+            />
+            Project Fair
+          </Navbar.Brand>
+        </Link>
 {    token &&      <button className="btn btn-warning ms-auto rounded-0" onClick={handleLogout}>
-            <FontAwesomeIcon icon={faPowerOff} className="me-2" />
-            Logout
-          </button>}
-        </Container>
-      </Navbar>
-    </div>
-  );
-};
+          <FontAwesomeIcon icon={faPowerOff} className="me-2" />
+          Logout
+        </button>}
+      </Container>
+    </Navbar>
+  </div>
+  )
+}
 
-export default Header;
+export default Heading

@@ -7,9 +7,10 @@ import Auth from './pages/Auth'
 import Projects from './pages/Projects'
 import { Pagenotfound } from './pages/Pagenotfound'
 import Footer from './components/Footer'
-import Header from './components/header'
+// import Header from './components/Header'
 import { useContext } from 'react'
 import { loginResponseContext } from './context/Contextshare'
+import Heading from './components/Heading'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const {loginResponse} = useContext(loginResponseContext)
   return (
  <>
- <Header/>
+ <Heading/>
  <Routes>
   <Route path='/' element={<Home/>}/>
   <Route path='/dashboard' element={loginResponse?<Dashboard/>:<Pagenotfound/>}/>
